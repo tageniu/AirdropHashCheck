@@ -3,8 +3,8 @@ import hashlib
 import multiprocessing as mp
 targetstart = '3bbc8'#input('Enter the target hash start fragment: ')
 targetend = '844e6'#input('Enter the target hash end fragment: ')
-areacodelist = list(range(201,1000))
-phonematch = []# mp.Manager().list()
+areacodelist = list(range(646,650))
+phonematch = mp.Manager().list()
 
 def checkPhoneNumber(areacode):
     # global phonematch
@@ -33,13 +33,13 @@ if __name__ == '__main__':
     pool.map(checkPhoneNumber,areacodelist)
     pool.close()
     pool.join()
-    print(phonematch)
     
     if phonematch:
         print('\nYour target\'s phone number may be:')
-        for match in phonematch:
-            print(match)
+        print(phonematch)
+#         for match in phonematch:
+#             print(match)
     else:
         print('\nTarget phone number not found in this area code set. Target phone may use another country code.')
 
-    print('All time: {:.2f} s'.format(time.time()-t0))
+    print('\nAll time: {:.2f} s'.format(time.time()-t0))
