@@ -4,7 +4,7 @@ import multiprocessing as mp
 targetstart = '3bbc8'#input('Enter the target hash start fragment: ')
 targetend = '844e6'#input('Enter the target hash end fragment: ')
 areacodelist = list(range(646,650))
-phonematch = mp.Manager().list()
+phonematch = []#mp.Manager().list()
 
 def checkPhoneNumber(areacode):
     # global phonematch
